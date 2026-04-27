@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/alaskaglaciallakes/static/css/main.0e0791ef.css",
+    "main.js": "/alaskaglaciallakes/static/js/main.a9b42c10.js",
+    "index.html": "/alaskaglaciallakes/index.html",
+    "main.0e0791ef.css.map": "/alaskaglaciallakes/static/css/main.0e0791ef.css.map",
+    "main.a9b42c10.js.map": "/alaskaglaciallakes/static/js/main.a9b42c10.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e0791ef.css",
+    "static/js/main.a9b42c10.js"
+  ]
+}
