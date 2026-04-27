@@ -1,0 +1,54 @@
+
+
+@import 'mapbox-gl/dist/mapbox-gl.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+
+.glacier-popup.mapboxgl-popup {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+
+.glacier-popup .mapboxgl-popup-content {
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.594);
+  backdrop-filter: blur(3px);
+  color: white;
+  padding: 3px;
+  -webkit-backdrop-filter: none !important; 
+  z-index: 1;
+}
+
+.glacier-popup .mapboxgl-popup-tip {
+  display: none !important;
+}
+
+.glacier-label {
+  font-size: 11.75px !important;
+  font-weight: 520;
+  color: rgba(255, 255, 255, 0.894); 
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.glacier-popup,
+.glacier-popup * {
+  pointer-events: none !important;
+}
+
+.mapboxgl-popup:not(.glacier-popup),
+.mapboxgl-popup:not(.glacier-popup) * {
+  pointer-events: auto !important;
+  z-index: 1000; 
+}
+
+
+.mapboxgl-map:has(.mapboxgl-popup:not(.glacier-popup):hover) .mapboxgl-canvas,
+.mapboxgl-map:has(.mapboxgl-popup:not(.glacier-popup):hover) .mapboxgl-canvas-container {
+  pointer-events: none !important;
+}
+
+.glacier-popup, .glacier-popup * { pointer-events: none !important; }

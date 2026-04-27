@@ -1,0 +1,37 @@
+import React, { useState } from "react";
+import "./AboutMap.css";
+import Model from './Model';
+
+const AboutMap = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className={`flood-records-container ${isHovered ? "expanded" : ""}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {!isHovered ? (
+        <span className="tooltip-icon">More Info</span>
+      ) : (
+        <div className="tooltip-title">
+          <h2>Ice-Dammed Glacial Lakes</h2>
+
+          <div className="tooltip-text">
+            Ice-dammed lakes form when glacial ice blocks the drainage of rivers or meltwater. These lakes often occur along the margins of mountain and icefield glaciers.
+            <Model />
+          </div>
+
+          <div className="tooltip-bottom-text">
+            As shown above, one side of Snow Lake is dammed by the Snow Glacier. Around every 14 months, the lake drains rapidly when the ice dam fails, impacting infrastructure in Seward and along the Snow River.
+          </div>
+
+
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default AboutMap;
+

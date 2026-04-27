@@ -1,0 +1,75 @@
+import React, { useEffect, useRef, useState } from "react";
+import "./aboutglaciallakes.css";
+
+
+const Stat = ({ target = false }) => {
+  const [, setCount] = useState(0);
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      let current = 0;
+      const increment = Math.ceil(target / 200);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        setCount(current);
+      }, 20);
+    }
+  }, [isVisible, target]);
+
+
+};
+
+const AboutGlacialLakes = () => {
+  return (
+    <div className="about-container">
+
+      <h1 className="about-title">Ice-Dammed Glacial Lakes</h1>
+      <h3 className="about-subheading">
+        Their Presence as a Hazard & How They Work
+      </h3>
+
+      <section className="about-lakes-card">
+        <p>
+          Ice-dammed glacial lakes represent a serious flood hazard in Alaska.
+          These lakes form when glaciers block natural valleys, creating
+          reservoirs that can release suddenly and catastrophically. Explore the story map below to learn more.
+        </p>
+      </section>
+
+          <div className="story-map-container">
+      <iframe
+        src="https://storymaps.arcgis.com/stories/f67262b3d214409b9840386c25ec1bea"
+        width="100%"
+        height="650px"
+        frameBorder="0"
+        allowFullScreen
+        allow="geolocation"
+        title="StoryMap"
+      ></iframe>
+      </div>
+    </div>
+  );
+};
+
+export default AboutGlacialLakes;
